@@ -6,7 +6,7 @@
 <title>Privacy Policy — Ground We Share</title>
 <meta name="description" content="Privacy Policy for Ground We Share (半分知己)">
 <style>
-  :root { color-scheme: light dark; }
+  :root { color-scheme: light; background: #fff; }
   body {
     font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
     max-width: 760px;
@@ -26,83 +26,92 @@
 </head>
 <body>
 
+<nav aria-label="Page navigation"><a href="support.html">Support / 支持</a> · <a href="#chinese">中文</a></nav>
 <h1>Ground We Share — Privacy Policy</h1>
-<p class="meta">Effective date: <span class="todo">[TODO — fill in before publishing]</span> · English is the canonical version.</p>
+<p class="meta">Effective date: September 13, 2026 · Applies to the free iOS app. English is the canonical version.</p>
 
-<p>Ground We Share ("GWS", "the app") is built so that your data never has to leave your device to do the thing the app does. This policy explains exactly what that means.</p>
+<p>Ground We Share ("GWS", "the app"), provided by Ziqian Liu, helps two people find shared interests through local computation and manually exchanged messages. This policy covers the app, this website, and support communications.</p>
 
 <h2>1. No account, no server</h2>
 <p>GWS has no user accounts, no login, and no backend server. There is nothing for us to store on your behalf, because there is no "us" in the data path — the app runs entirely on your device.</p>
 
 <h2>2. What we collect</h2>
-<p><strong>Nothing.</strong> We do not collect, transmit, or have access to any of your data — not your selections, not your identity, not usage analytics, not crash reports, not advertising identifiers. The app contains no analytics SDK, no crash-reporting SDK, and no advertising SDK.</p>
+<p>The app does not send your selections, matching results, or cryptographic keys to us. It contains no analytics SDK, crash-reporting SDK, or advertising SDK, and requires no account. Website visits, voluntary support emails, and Apple's testing services are described below.</p>
 
 <h2>3. How the app works, briefly</h2>
-<p>GWS helps two people find what they have in common (movies, music, or a shared list of relationship boundaries) without either person seeing the other's full private list. It does this using a cryptographic technique called private set intersection (PSI): the person who receives a reply computes the overlap locally, on their own device. The other person never sees the result. Neither side's full list is ever exposed to the other, and no list is ever exposed to us — because it never reaches us in the first place.</p>
-<p>You share results with the other person by copying and pasting a short piece of text through whatever messaging app you already use (e.g. WeChat, iMessage). We never see that text either.</p>
+<p>GWS supports movies, music artists, countries, and relationship boundaries. It uses private set intersection (PSI) to find an overlap without exchanging the full lists in readable form. In the current one-to-one workflow, the invitation sender computes the result locally after receiving a reply. The responder does not receive the result in the app.</p>
+<p>You exchange invitation and reply text through a messaging service of your choice. These messages contain cryptographic data and may also reveal the topic, prompt, and list sizes; not every part of a message is encrypted. Your messaging provider and recipients handle the text you send. GWS does not relay it through a developer-operated server.</p>
 
 <h2>4. Data stored on your device</h2>
 <p>Your selections and the cryptographic keys used to compute the match are stored locally on your device using iOS's standard app-storage mechanism.</p>
-<p><strong>In-progress rounds.</strong> After you send an invite and before the other person replies, that round's selections and the cryptographic key material needed to compute the match are stored on your device, and may be included in your own device backup (iCloud) if you have iCloud Backup enabled. This data is never sent to any server, and never sent to the other person. You can clear it at any time by tapping "Start over" on the result screen. We made a deliberate decision not to auto-delete this data after a period of inactivity, because doing so risks silently destroying a round you are still waiting on a reply for; if you want it gone sooner, "Start over" removes it immediately.</p>
-<p><strong>Completed rounds.</strong> Once a round finishes, the app keeps a local history entry (what you matched on, how many items, when) so you can look back at it. It does <strong>not</strong> keep the cryptographic key material used to compute that round — that is discarded the moment the result is calculated, and cannot be recovered even by us, because we never had it.</p>
-<p>None of this ever leaves your device except as part of your own personal iCloud backup, which is controlled by your Apple ID and Apple's own backup infrastructure, not by us.</p>
+<p><strong>In-progress rounds.</strong> For an invitation sender, the app retains the selected items and cryptographic material needed to process a reply. A responder's session retains protocol messages needed for the return step. Pending sessions do not automatically expire. Starting a replacement round may overwrite the current session after confirmation.</p>
+<p><strong>Completed rounds.</strong> After the sender computes a result, the app removes that round's private key and full selected list from the active session record. It keeps local history containing the topic, prompt, matched items, the sender's selection count, and time. It retains up to 10 history entries across topics other than boundaries; boundary entries remain until manually deleted.</p>
+<p><strong>Your controls.</strong> You can delete history in the app. Deleting history does not also clear the current session. The result screen's "Start over" action clears the current session when applicable. Local app data may be included in device backups, including iCloud backups, according to your Apple settings. Removing a record from the app does not erase earlier backups or messages you have shared. We cannot retrieve or remotely delete your local selections or results.</p>
 
 <h2>5. Network activity</h2>
 <p>During normal use — searching, selecting items, generating an invite, computing a result — <strong>the app makes no network requests at all.</strong> The movie, music, and other lookup lists are bundled inside the app itself.</p>
-<p>The one exception: next to each item in your result, there's a small "↗" link. Tapping it opens that item's Wikidata page in your device's default web browser. This is a standard outbound link, not a request the app makes on your behalf — once you tap it, you've left the app, and Wikidata's own privacy policy applies to that page, not ours.</p>
+<p>Opening external links, including "↗" links to Wikidata, or visiting this website requires network access. The destination service may receive information such as your IP address and browser details. Exchanging text through a messaging service also uses that service's infrastructure.</p>
 
 <h2>6. Third parties</h2>
-<p>We do not share data with third parties, because we do not have any data to share. The only third party you may interact with is Wikidata, and only if you choose to tap the "↗" link described above.</p>
+<p>We do not sell app data or use it for advertising. Messaging services, backup services, and external websites operate under their own policies. Wikidata is covered by the <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy">Wikimedia Privacy Policy</a>.</p>
+<p>This website is hosted on GitHub Pages. We add no analytics scripts, advertising, or tracking cookies. GitHub may process technical request information, including IP addresses, to provide and secure hosting; see the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a>.</p>
+<p>If you use a TestFlight beta, Apple collects testing information and may share crash reports, usage information, and feedback with the developer under <a href="https://www.apple.com/legal/privacy/data/en/test-flight/">TestFlight &amp; Privacy</a>. This is separate from the app's own local processing.</p>
+<p>If you email us, we receive your email address and whatever you include. We use this information to respond and resolve your request, and retain it only as needed for support or legal obligations. Email providers process delivery and storage. Please avoid sending private selections, invitation text, or reply text. You can contact us to request access, correction, or deletion of support correspondence. Depending on your location, you may have additional privacy rights, including the right to complain to your local data protection authority.</p>
 
 <h2>7. Children's privacy</h2>
-<p>The app does not collect data from anyone, of any age, so there is nothing age-specific to disclose. The app is not directed at children and contains no advertising or in-app purchases.</p>
+<p>The app is not directed at children and contains no advertising or in-app purchases. We do not knowingly request personal information from children. If a child has sent personal information to support, please contact us so we can address it.</p>
 
 <h2>8. Changes to this policy</h2>
-<p>If this policy changes, we will update the effective date above and, for material changes, note what changed. Continued use of the app after a change means you accept the updated policy.</p>
+<p>If this policy changes, we will update the effective date above and explain material changes. We will provide additional notice or obtain consent where required.</p>
 
 <h2>9. Contact</h2>
-<p>Questions about this policy: <a href="mailto:privacy@groundweshare.com">privacy@groundweshare.com</a></p>
+<p>Developer: Ziqian Liu. Questions about privacy or support: <a href="mailto:admin@sceneswemet.com">admin@sceneswemet.com</a>. See also our <a href="support.html">support page</a>.</p>
 
-<div class="lang-divider">中文（非约束性译文）</div>
+<div class="lang-divider" id="chinese">中文（非约束性译文）</div>
+<section lang="zh-Hans">
 
 <h1 style="font-size:1.4rem;">半分知己 — 隐私政策</h1>
-<p class="meta">生效日期：<span class="todo">[待定 — 发布前填写]</span> · 与英文正文冲突时以英文为准。</p>
+<p class="meta">生效日期：2026 年 9 月 13 日 · 适用于免费 iOS 版。与英文正文冲突时以英文为准。</p>
 
-<p>半分知己（Ground We Share，以下简称"本应用"）的设计目标是：让你想做的事在你自己的设备上就能完成，数据完全不需要离开设备。以下逐条说明这具体意味着什么。</p>
+<p>半分知己（Ground We Share，以下简称“本应用”）由 Ziqian Liu 提供，通过本地计算与手动交换消息，帮助两个人发现共同点。本政策涵盖本应用、本网站和支持通信。</p>
 
 <h2>1. 没有账号，没有服务器</h2>
 <p>本应用没有用户账号、没有登录、没有后端服务器。我们没有任何"代你保存"的东西，因为数据链路里根本不存在"我们"这一环——应用完全在你自己的设备上运行。</p>
 
 <h2>2. 我们收集什么</h2>
-<p><strong>什么都不收集。</strong>我们不收集、不传输、也无法访问你的任何数据——不管是你的选择内容、你的身份、使用行为统计、崩溃报告，还是广告标识符。应用里没有集成任何分析 SDK、崩溃上报 SDK 或广告 SDK。</p>
+<p>应用不会向我们发送你的选择、匹配结果或密码学密钥，没有集成分析 SDK、崩溃上报 SDK 或广告 SDK，也不需要账号。网站访问、主动发送的支持邮件及苹果测试服务的情况见下文。</p>
 
 <h2>3. 应用如何工作（简述）</h2>
-<p>本应用帮助两个人找出彼此的共同点（电影、音乐，或一份共同的关系边界清单），而不让任何一方看到对方的完整私人清单。它使用一种叫"隐私集合求交"（PSI）的密码学技术：接收回传的那一方在自己的设备上本地算出重合部分。另一方永远看不到结果。任何一方的完整清单都不会暴露给对方，也不会暴露给我们——因为它压根不会传到我们这里。</p>
-<p>你把结果分享给对方的方式，是把一小段文字复制粘贴进你本来就在用的聊天软件（比如微信、iMessage）。那段文字我们同样看不到。</p>
+<p>应用支持电影、音乐艺人、国家和关系边界，使用隐私集合求交（PSI），无需以可读形式交换完整清单即可计算交集。在当前一对一流程中，邀请发起方收到回传后在本地计算结果；响应方不会在应用中收到结果。</p>
+<p>你通过自己选择的聊天服务交换邀请与回传文字。这些消息包含密码学数据，也可能透露场景、提示语和清单条目数量，并非所有内容都经过加密。聊天服务及收件人会处理你发送的文字，GWS 不通过开发者运营的服务器中转消息。</p>
 
 <h2>4. 保存在你设备上的数据</h2>
 <p>你的选择内容与用于计算匹配结果的密钥材料，会通过 iOS 标准的应用存储机制保存在你自己的设备上。</p>
-<p><strong>进行中的轮次。</strong>发出邀请后、对方回复之前，这一轮的选择内容和计算所需的密钥材料会保存在你的设备上，并可能进入你自己的设备备份（iCloud，若你开启了 iCloud 备份）。它不会发送到任何服务器，也不会发给对方。你可以在结果页点「重新开始」清除它。我们有意决定不做自动过期清理——自动清理有可能在你还在等对方回复时，悄悄销毁那一轮的数据；如果你想更早清除，随时可以手动点「重新开始」。</p>
-<p><strong>已完成的轮次。</strong>一轮结束后，应用会在本地保留一条历史记录（匹配到了什么、多少项、什么时候），方便你回顾。它<strong>不会</strong>保留那一轮用过的密钥材料——结果一算出来，密钥材料就被丢弃，我们自己也无法恢复，因为我们从未拥有过它。</p>
-<p>以上所有数据除了作为你个人 iCloud 备份的一部分之外，永远不会离开你的设备——而 iCloud 备份由你自己的 Apple ID 与苹果自己的备份系统控制，不受我们管理。</p>
+<p><strong>进行中的轮次。</strong>发起方设备保存所选条目及处理回传所需的密码学材料；响应方会话保存回传步骤所需的协议消息。待完成会话不会自动过期。开始替代轮次时，可能在确认后覆盖当前会话。</p>
+<p><strong>已完成的轮次。</strong>发起方算出结果后，应用会从当前会话记录移除该轮私钥与完整选择清单。本地历史记录包含场景、提示语、交集条目、发起方选择数量及时间。非边界场景合计最多保留 10 条历史；边界历史保留至手动删除。</p>
+<p><strong>你的控制方式。</strong>你可以在应用中删除历史，但删除历史不会同时清除当前会话。结果页的「重新开始」在适用时清除当前会话。依据苹果设置，本地数据可能进入设备备份，包括 iCloud 备份。在应用中移除记录不会删除旧备份或已分享的消息。我们无法取回或远程删除你的本地选择与结果。</p>
 
 <h2>5. 网络活动</h2>
 <p>在正常使用过程中——搜索、选择条目、生成邀请、计算结果——<strong>应用完全不发起任何网络请求。</strong>电影、音乐等词表数据已经打包在应用内部。</p>
-<p>唯一的例外：结果页每条匹配项旁边有一个小小的"↗"链接。点它会在你手机的默认浏览器里打开该条目在 Wikidata 上的页面。这是一个普通的外部链接，不是应用替你发起的请求——点开之后你已经离开了应用，那个页面适用 Wikidata 自己的隐私政策，与我们无关。</p>
+<p>打开外部链接（包括通往 Wikidata 的「↗」链接）或访问本网站需要联网，目标服务可能收到 IP 地址、浏览器信息等数据。通过聊天服务交换文字也会使用该服务的基础设施。</p>
 
 <h2>6. 第三方</h2>
-<p>我们不与任何第三方共享数据，因为我们本来就没有数据可共享。你唯一可能接触到的第三方是 Wikidata，且仅在你主动点击上述"↗"链接时才会发生。</p>
+<p>我们不出售应用数据，也不将其用于广告。聊天、备份和外部网站适用各自的政策。Wikidata 适用 <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy">Wikimedia 隐私政策</a>。</p>
+<p>本网站由 GitHub Pages 托管，我们没有添加统计脚本、广告或追踪 Cookie。GitHub 可能为提供及保护托管服务处理 IP 地址等技术请求信息，详见 <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub 隐私声明</a>。</p>
+<p>如果你使用 TestFlight 测试版，苹果会收集测试信息，并可能向开发者提供崩溃报告、使用信息及反馈，详见 <a href="https://www.apple.com/legal/privacy/data/en/test-flight/">TestFlight 与隐私</a>。这与应用自身的本地计算是不同的处理活动。</p>
+<p>如果你向我们发邮件，我们会收到你的邮箱地址及你提供的内容，用于回复和处理请求，并仅在支持或法律义务所需期间保留。邮件服务商负责邮件传输及存储。请避免发送私人选择、邀请或回传文字。你可联系我们请求访问、更正或删除支持通信。依据所在地法律，你可能还享有其他隐私权利，包括向当地数据保护机构投诉的权利。</p>
 
 <h2>7. 儿童隐私</h2>
-<p>本应用不向任何年龄段的用户收集数据，因此没有需要特别披露的儿童相关内容。应用不面向儿童设计，不含广告，也不含应用内购买。</p>
+<p>应用不面向儿童设计，不含广告或应用内购买。我们不会主动向儿童索取个人信息。如果儿童已通过支持渠道发送个人信息，请联系我们处理。</p>
 
 <h2>8. 政策变更</h2>
-<p>如本政策发生变更，我们会更新上方的生效日期；重大变更会注明具体改了什么。变更后继续使用本应用，即表示你接受更新后的政策。</p>
+<p>本政策变更时，我们会更新生效日期并说明重大变化，依法提供额外通知或取得同意。</p>
 
 <h2>9. 联系方式</h2>
-<p>对本政策有疑问：<a href="mailto:privacy@groundweshare.com">privacy@groundweshare.com</a></p>
+<p>开发者：Ziqian Liu。隐私及支持邮箱：<a href="mailto:admin@sceneswemet.com">admin@sceneswemet.com</a>。也可查看<a href="support.html">支持页面</a>。</p>
+</section>
 
-<footer>Ground We Share (半分知己) · <span id="beian-slot"><!-- 备案号通过后填在这里，例如：粤ICP备xxxxxxxx号-x，并链接 https://beian.miit.gov.cn --></span></footer>
+<footer>Ground We Share (半分知己) · <a href="support.html">Support / 支持</a></footer>
 
 </body>
 </html>
