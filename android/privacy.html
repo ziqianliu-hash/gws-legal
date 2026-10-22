@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Android Privacy Policy — Ground We Share</title>
+<meta name="description" content="Privacy Policy for Ground We Share (半分知己)">
+<style>
+  :root { color-scheme: light; background: #fff; }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+    max-width: 760px;
+    margin: 0 auto;
+    padding: 2.5rem 1.5rem 5rem;
+    line-height: 1.7;
+    color: #1b1b1f;
+  }
+  h1 { font-size: 1.6rem; margin-bottom: .25rem; }
+  h2 { font-size: 1.15rem; margin-top: 2.2rem; border-top: 1px solid #e2e2e6; padding-top: 1.4rem; }
+  .meta { color: #666; font-size: .9rem; margin-bottom: 2rem; }
+  .todo { background: #fff3cd; color: #664d03; padding: .15rem .5rem; border-radius: 4px; font-size: .85em; }
+  .lang-divider { margin: 3.5rem 0 2rem; text-align: center; color: #999; font-size: .85rem; letter-spacing: .1em; text-transform: uppercase; }
+  a { color: #2a5db0; }
+  footer { margin-top: 4rem; padding-top: 1.5rem; border-top: 1px solid #e2e2e6; font-size: .85rem; color: #888; }
+</style>
+</head>
+<body>
+
+<nav aria-label="Page navigation"><a href="mailto:admin@sceneswemet.com">Support / 支持</a> · <a href="#chinese">中文</a></nav>
+<h1>Ground We Share — Android Privacy Policy</h1>
+<p class="meta">Effective October 22, 2026 · Applies to the free Android app. English is the canonical version.</p>
+
+<p>Ground We Share ("GWS", "the app"), provided by Ziqian Liu, helps two people find shared interests through local computation and manually exchanged messages. This policy covers the app, this website, and support communications.</p>
+
+<h2>1. No account, no server</h2>
+<p>GWS has no user accounts or login. The developer does not operate a server to receive selections, compute matches, or relay invitation and reply messages. Matching is computed on your device. Website hosting and support communications are described below.</p>
+
+<h2>2. What we collect</h2>
+<p>The app does not send your selections, matching results, or cryptographic keys to us. It contains no analytics SDK, crash-reporting SDK, or advertising SDK, and requires no account. Website visits and voluntary support emails are described below.</p>
+
+<h2>3. How the app works, briefly</h2>
+<p>GWS supports movies, music artists, countries, and relationship boundaries. It uses private set intersection (PSI) to find an overlap without exchanging the full lists in readable form. In the current one-to-one workflow, the invitation sender computes the result locally after receiving a reply. The responder does not receive the result in the app.</p>
+<p>You exchange invitation and reply text through a messaging service of your choice. These messages contain cryptographic data and may also reveal the topic, prompt, and list sizes; not every part of a message is encrypted. Your messaging provider and recipients handle the text you send. GWS does not relay it through a developer-operated server.</p>
+
+<h2>4. Data stored on your device</h2>
+<p>Your selections and the cryptographic keys used to compute the match are stored locally on your device using Capacitor Preferences (SharedPreferences on Android). This is app-private storage, not an encrypted vault.</p>
+<p><strong>In-progress rounds.</strong> For an invitation sender, the app retains the selected items and cryptographic material needed to process a reply. A responder's session retains protocol messages needed for the return step. Pending sessions do not automatically expire. Starting a replacement round may overwrite the current session after confirmation.</p>
+<p><strong>Completed rounds.</strong> After the sender computes a result, the app removes that round's private key and full selected list from the active session record. It keeps local history containing the topic, prompt, matched items, the sender's selection count, and time. It retains up to 10 history entries across topics other than boundaries; boundary entries remain until manually deleted.</p>
+<p><strong>Your controls.</strong> You can delete history in the app. Deleting history does not also clear the current session. The result screen's "Start over" action clears the current session when applicable. Local app data, including pending-round cryptographic material and history, may be included in device backups, according to your operating system, device settings, and manufacturer. Android backup is enabled; cloud backup and device-to-device transfer may include app data, but availability is not guaranteed. Removing a record from the app does not erase earlier backups or messages you have shared. We cannot retrieve or remotely delete your local selections or results.</p>
+
+<h2>5. Network activity</h2>
+<p>Searching the bundled lists, selecting items, generating an invite, and computing a result run locally and do not require an internet connection or a developer-operated service. GWS does not send your selections, matching results, or cryptographic keys to us. The movie, music, and other lookup lists are bundled inside the app itself.</p>
+<p>Opening external links, including "↗" links to Wikidata, or visiting this website requires network access. The destination service may receive information such as your IP address and browser details. Exchanging text through a messaging service also uses that service's infrastructure.</p>
+
+<h2>6. Third parties</h2>
+<p>We do not sell app data or use it for advertising. Messaging services, backup services, and external websites operate under their own policies. Wikidata is covered by the <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy">Wikimedia Privacy Policy</a>.</p>
+<p>The public policy website is hosted on GitHub Pages; this bundled copy can be read offline. We add no analytics scripts, advertising, or tracking cookies. GitHub may process technical request information, including IP addresses, to provide and secure hosting; see the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a>.</p>
+<p>If you email us, we receive your email address and whatever you include. We use this information to respond and resolve your request, and retain it only as needed for support or legal obligations. Email providers process delivery and storage. Please avoid sending private selections, invitation text, or reply text. You can contact us to request access, correction, or deletion of support correspondence. Depending on your location, you may have additional privacy rights, including the right to complain to your local data protection authority.</p>
+
+<h2>7. Children's privacy</h2>
+<p>The Android app is intended for adults aged 18 and over and contains no advertising or in-app purchases. We do not knowingly request personal information from children. If a child has sent personal information to support, please contact us so we can address it.</p>
+
+<h2>8. Changes to this policy</h2>
+<p>If this policy changes, we will update the effective date above and explain material changes. We will provide additional notice or obtain consent where required.</p>
+
+<h2>9. Contact</h2>
+<p>Developer: Ziqian Liu. Questions about privacy or support: <a href="mailto:admin@sceneswemet.com">admin@sceneswemet.com</a>. For support, use the same email address.</p>
+
+<div class="lang-divider" id="chinese">中文（非约束性译文）</div>
+<section lang="zh-Hans">
+
+<h1 style="font-size:1.4rem;">半分知己 — Android 隐私政策</h1>
+<p class="meta">生效日期：2026 年 10 月 22 日 · 适用于免费 Android 版。与英文正文冲突时以英文为准。</p>
+
+<p>半分知己（Ground We Share，以下简称“本应用”）由 Ziqian Liu 提供，通过本地计算与手动交换消息，帮助两个人发现共同点。本政策涵盖本应用、本网站和支持通信。</p>
+
+<h2>1. 没有账号，没有服务器</h2>
+<p>本应用没有用户账号或登录。开发者不运营接收选择、计算匹配或中转邀请与回传消息的服务器；匹配在你的设备上计算。网站托管和支持通信另见下文。</p>
+
+<h2>2. 我们收集什么</h2>
+<p>应用不会向我们发送你的选择、匹配结果或密码学密钥，没有集成分析 SDK、崩溃上报 SDK 或广告 SDK，也不需要账号。网站访问及主动发送的支持邮件的情况见下文。</p>
+
+<h2>3. 应用如何工作（简述）</h2>
+<p>应用支持电影、音乐艺人、国家和关系边界，使用隐私集合求交（PSI），无需以可读形式交换完整清单即可计算交集。在当前一对一流程中，邀请发起方收到回传后在本地计算结果；响应方不会在应用中收到结果。</p>
+<p>你通过自己选择的聊天服务交换邀请与回传文字。这些消息包含密码学数据，也可能透露场景、提示语和清单条目数量，并非所有内容都经过加密。聊天服务及收件人会处理你发送的文字，GWS 不通过开发者运营的服务器中转消息。</p>
+
+<h2>4. 保存在你设备上的数据</h2>
+<p>你的选择内容与用于计算匹配结果的密钥材料，通过 Capacitor Preferences 保存在你自己的设备上（Android 使用 SharedPreferences）。这是应用私有存储，不是加密保险库。</p>
+<p><strong>进行中的轮次。</strong>发起方设备保存所选条目及处理回传所需的密码学材料；响应方会话保存回传步骤所需的协议消息。待完成会话不会自动过期。开始替代轮次时，可能在确认后覆盖当前会话。</p>
+<p><strong>已完成的轮次。</strong>发起方算出结果后，应用会从当前会话记录移除该轮私钥与完整选择清单。本地历史记录包含场景、提示语、交集条目、发起方选择数量及时间。非边界场景合计最多保留 10 条历史；边界历史保留至手动删除。</p>
+<p><strong>你的控制方式。</strong>你可以在应用中删除历史，但删除历史不会同时清除当前会话。结果页的「重新开始」在适用时清除当前会话。依据操作系统、设备设置及厂商，本地数据（包括待完成轮次的密码学材料和历史）可能进入设备备份。Android 备份已启用，云备份或设备间迁移可能包含应用数据，但不保证可用。在应用中移除记录不会删除旧备份或已分享的消息。我们无法取回或远程删除你的本地选择与结果。</p>
+
+<h2>5. 网络活动</h2>
+<p>搜索内置词表、选择条目、生成邀请和计算结果均在本地进行，不需要联网或开发者运营的服务。GWS 不会向我们发送你的选择、匹配结果或密码学密钥。电影、音乐等词表数据已打包在应用内部。</p>
+<p>打开外部链接（包括通往 Wikidata 的「↗」链接）或访问本网站需要联网，目标服务可能收到 IP 地址、浏览器信息等数据。通过聊天服务交换文字也会使用该服务的基础设施。</p>
+
+<h2>6. 第三方</h2>
+<p>我们不出售应用数据，也不将其用于广告。聊天、备份和外部网站适用各自的政策。Wikidata 适用 <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy">Wikimedia 隐私政策</a>。</p>
+<p>公开隐私政策网站由 GitHub Pages 托管。我们没有添加统计脚本、广告或追踪 Cookie。GitHub 可能为提供及保护托管服务处理 IP 地址等技术请求信息，详见 <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub 隐私声明</a>。本地随应用打包的政策副本可离线阅读。</p>
+<p>如果你向我们发邮件，我们会收到你的邮箱地址及你提供的内容，用于回复和处理请求，并仅在支持或法律义务所需期间保留。邮件服务商负责邮件传输及存储。请避免发送私人选择、邀请或回传文字。你可联系我们请求访问、更正或删除支持通信。依据所在地法律，你可能还享有其他隐私权利，包括向当地数据保护机构投诉的权利。</p>
+
+<h2>7. 儿童隐私</h2>
+<p>Android 版仅面向 18 岁及以上成年人，不含广告或应用内购买。我们不会主动向儿童索取个人信息。如果儿童已通过支持渠道发送个人信息，请联系我们处理。</p>
+
+<h2>8. 政策变更</h2>
+<p>本政策变更时，我们会更新生效日期并说明重大变化，依法提供额外通知或取得同意。</p>
+
+<h2>9. 联系方式</h2>
+<p>开发者：Ziqian Liu。隐私及支持邮箱：<a href="mailto:admin@sceneswemet.com">admin@sceneswemet.com</a>。支持请求也请发送至该邮箱。</p>
+</section>
+
+<footer>Ground We Share (半分知己) · <a href="mailto:admin@sceneswemet.com">Support / 支持</a></footer>
+
+</body>
+</html>
