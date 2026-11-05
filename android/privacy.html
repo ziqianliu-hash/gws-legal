@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Android Privacy Policy — Ground We Share</title>
+<title>Privacy Policy — Ground We Share</title>
 <meta name="description" content="Privacy Policy for Ground We Share (半分知己)">
 <style>
   :root { color-scheme: light; background: #fff; }
@@ -26,9 +26,10 @@
 </head>
 <body>
 
-<nav aria-label="Page navigation"><a href="mailto:admin@sceneswemet.com">Support / 支持</a> · <a href="#chinese">中文</a></nav>
-<h1>Ground We Share — Android Privacy Policy</h1>
-<p class="meta">Effective October 22, 2026 · Applies to the free Android app. English is the canonical version.</p>
+<nav aria-label="Page navigation"><a href="/support.html">Support / 支持</a> · <a href="#chinese">中文</a></nav>
+<section data-policy-language="en" lang="en">
+<h1>Ground We Share — Privacy Policy</h1>
+<p class="meta">Updated November 4, 2026 · Applies to the free iOS and Android apps. English is the canonical version.</p>
 
 <p>Ground We Share ("GWS", "the app"), provided by Ziqian Liu, helps two people find shared interests through local computation and manually exchanged messages. This policy covers the app, this website, and support communications.</p>
 
@@ -36,17 +37,26 @@
 <p>GWS has no user accounts or login. The developer does not operate a server to receive selections, compute matches, or relay invitation and reply messages. Matching is computed on your device. Website hosting and support communications are described below.</p>
 
 <h2>2. What we collect</h2>
-<p>The app does not send your selections, matching results, or cryptographic keys to us. It contains no analytics SDK, crash-reporting SDK, or advertising SDK, and requires no account. Website visits and voluntary support emails are described below.</p>
+<p>The app does not send your selections, matching results, or cryptographic keys to us. It contains no analytics SDK, crash-reporting SDK, or advertising SDK, and requires no account. Website visits, voluntary support emails, and Apple's testing services are described below.</p>
 
 <h2>3. How the app works, briefly</h2>
-<p>GWS supports movies, music artists, countries, and relationship boundaries. It uses private set intersection (PSI) to find an overlap without exchanging the full lists in readable form. In the current one-to-one workflow, the invitation sender computes the result locally after receiving a reply. The responder does not receive the result in the app.</p>
+<p><strong>Clipboard.</strong> GWS reads clipboard text only after you explicitly tap an import or clipboard-reading action, then checks and imports the invitation or reply. It does not monitor the clipboard in the background or keep a separate clipboard history. If reading or recognition fails, you can paste and edit the message manually before confirming the import.</p>
+<p>GWS supports movies, music artists, countries, relationship boundaries, and two-person free-time comparisons. It uses private set intersection (PSI) to find an overlap without exchanging the full lists in readable form. In the current one-to-one workflow, the invitation sender computes the result locally after receiving a reply. The responder does not receive the result in the app.</p>
+<p><strong>Free-time comparisons.</strong> The question, date range, creation time zone, time rule, round identifier and selection counts are public context. Each person can offer up to 24 one-hour slots across a range of up to seven consecutive dates. A responder can explicitly offer no times; the sender learns that choice. Only the sender receives the shared times and responder's count. Unselected times do not indicate being busy or unwilling. If all the responder's times overlap the sender's, all may appear in the result. The size limit does not prevent repeated probing or dishonest clients. Public digests check message damage; they are not signatures or identity authentication. Expiry uses the device clock, not a trusted remote timestamp. GWS does not access calendars or upload schedules.</p>
 <p>You exchange invitation and reply text through a messaging service of your choice. These messages contain cryptographic data and may also reveal the topic, prompt, and list sizes; not every part of a message is encrypted. Your messaging provider and recipients handle the text you send. GWS does not relay it through a developer-operated server.</p>
+<p><strong>Data flow.</strong> Your phone creates an invitation → you send it through your chosen messaging app → the other phone computes a reply → you exchange that reply through your chosen channel → the invitation sender's phone computes the result. The external messaging channel handles the messages; this is not a direct phone-to-phone connection managed by GWS.</p>
+<p><strong>Sharing results.</strong> You can preview locally generated PNG images and choose to share them through the system share sheet. These are readable results, not encrypted replies. Images contain the question and shared choices, including any relationship-boundary results, but exclude round notes, full selection lists, keys, and passphrases. You choose the destination app and recipient. Recipients may save or forward images; GWS cannot recall them. Opening a share sheet does not confirm delivery.</p>
 
 <h2>4. Data stored on your device</h2>
-<p>Your selections and the cryptographic keys used to compute the match are stored locally on your device using Capacitor Preferences (SharedPreferences on Android). This is app-private storage, not an encrypted vault.</p>
+<p>Your selections and the cryptographic keys used to compute the match are stored locally on your device using Capacitor Preferences (UserDefaults on iOS and SharedPreferences on Android). This is app-private storage, not an encrypted vault.</p>
 <p><strong>In-progress rounds.</strong> For an invitation sender, the app retains the selected items and cryptographic material needed to process a reply. A responder's session retains protocol messages needed for the return step. Pending sessions do not automatically expire. Starting a replacement round may overwrite the current session after confirmation.</p>
-<p><strong>Completed rounds.</strong> After the sender computes a result, the app removes that round's private key and full selected list from the active session record. It keeps local history containing the topic, prompt, matched items, the sender's selection count, and time. It retains up to 10 history entries across topics other than boundaries; boundary entries remain until manually deleted.</p>
-<p><strong>Your controls.</strong> You can delete history in the app. Deleting history does not also clear the current session. The result screen's "Start over" action clears the current session when applicable. Local app data, including pending-round cryptographic material and history, may be included in device backups, according to your operating system, device settings, and manufacturer. Android backup is enabled; cloud backup and device-to-device transfer may include app data, but availability is not guaranteed. Removing a record from the app does not erase earlier backups or messages you have shared. We cannot retrieve or remotely delete your local selections or results.</p>
+<p>All topics share one current round. A current free-time reply also keeps the responder's sealed UTC times so they can view their own fixed choices after restarting; it does not keep the responder's private key. Those times and the original reply are removed when the current round is replaced or abandoned. The responder is not told when the sender finishes, so sender completion does not remove data on the responder's device. Deleting a reply summary leaves the current reply available and does not recreate the deleted summary. Unsubmitted drafts are kept only during the current app process.</p>
+<p><strong>Results, reply summaries, and notes.</strong> After the sender computes a result, the app removes that round's private key and full selected list from the active session record. Local result history contains the topic, question, shared items, the sender's selection count and time where available, and an optional round note. A responder keeps a separate local summary marked as replied, with no result or full selection list. Records are kept until you delete them; there is no automatic ten-record limit. Round notes stay local and are excluded from invitation/reply messages and exported result images.</p>
+<p>Free-time result history keeps only shared UTC slots, the fixed date and time-zone context, both counts and association digests. Reply history keeps public context and the responder's count, with no full selection list or passphrase. A free-time result image contains only the public question, dates, displayed time zone and shared ranges. Expired results remain visible. App deletion is a data lifecycle action, not a promise of secure erasure of memory, system backups or chat copies.</p>
+<p><strong>Interface preferences.</strong> Your language preference is stored locally in app or browser storage. Changing the interface language does not translate your custom questions or stored record text.</p>
+<p><strong>Abandoning an invitation.</strong> You can abandon a pending invitation. This removes the current session and the cryptographic material needed to process its reply, so a later reply can no longer be used to calculate that comparison result. This action does not recall messages you have sent or remove earlier backups. Deleting history is a separate action and preserves pending sessions.</p>
+<p><strong>Temporary images.</strong> Sharing a PNG creates files in the app's cache, without automatically saving them to your photo library. Files may remain after the share sheet closes so the receiving app can read them. On a later launch, GWS attempts to remove its exports older than 24 hours; the operating system may reclaim cached files earlier. Files you save or share outside GWS are not removed by this cleanup.</p>
+<p><strong>Your controls.</strong> You can edit notes and delete individual records or all history in the app. Deleting history preserves pending invitation/reply sessions; deleting a completed record also removes its saved last-result display when applicable. The result screen's "Start over" action clears the current session when applicable. Local data, including pending-round keys, results, reply summaries, and notes, may be included in device backups, including iCloud backups, according to your operating system and settings. Android backup is enabled, but cloud backup and device-to-device transfer are not guaranteed. Deleting records does not erase earlier backups or shared messages/images. We cannot retrieve or remotely delete your local data.</p>
 
 <h2>5. Network activity</h2>
 <p>Searching the bundled lists, selecting items, generating an invite, and computing a result run locally and do not require an internet connection or a developer-operated service. GWS does not send your selections, matching results, or cryptographic keys to us. The movie, music, and other lookup lists are bundled inside the app itself.</p>
@@ -55,22 +65,24 @@
 <h2>6. Third parties</h2>
 <p>We do not sell app data or use it for advertising. Messaging services, backup services, and external websites operate under their own policies. Wikidata is covered by the <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy">Wikimedia Privacy Policy</a>.</p>
 <p>The public policy website is hosted on GitHub Pages; this bundled copy can be read offline. We add no analytics scripts, advertising, or tracking cookies. GitHub may process technical request information, including IP addresses, to provide and secure hosting; see the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub Privacy Statement</a>.</p>
+<p>If you use a TestFlight beta, Apple collects testing information and may share crash reports, usage information, and feedback with the developer under <a href="https://www.apple.com/legal/privacy/data/en/test-flight/">TestFlight &amp; Privacy</a>. This is separate from the app's own local processing.</p>
 <p>If you email us, we receive your email address and whatever you include. We use this information to respond and resolve your request, and retain it only as needed for support or legal obligations. Email providers process delivery and storage. Please avoid sending private selections, invitation text, or reply text. You can contact us to request access, correction, or deletion of support correspondence. Depending on your location, you may have additional privacy rights, including the right to complain to your local data protection authority.</p>
 
 <h2>7. Children's privacy</h2>
-<p>The Android app is intended for adults aged 18 and over and contains no advertising or in-app purchases. We do not knowingly request personal information from children. If a child has sent personal information to support, please contact us so we can address it.</p>
+<p>The app is not directed at children and contains no advertising or in-app purchases. We do not knowingly request personal information from children. If a child has sent personal information to support, please contact us so we can address it.</p>
 
 <h2>8. Changes to this policy</h2>
-<p>If this policy changes, we will update the effective date above and explain material changes. We will provide additional notice or obtain consent where required.</p>
+<p>If this policy changes, we will update the policy date above and explain material changes. We will provide additional notice or obtain consent where required.</p>
 
 <h2>9. Contact</h2>
 <p>Developer: Ziqian Liu. Questions about privacy or support: <a href="mailto:admin@sceneswemet.com">admin@sceneswemet.com</a>. For support, use the same email address.</p>
 
+</section>
 <div class="lang-divider" id="chinese">中文（非约束性译文）</div>
-<section lang="zh-Hans">
+<section data-policy-language="zh" lang="zh-Hans">
 
-<h1 style="font-size:1.4rem;">半分知己 — Android 隐私政策</h1>
-<p class="meta">生效日期：2026 年 10 月 22 日 · 适用于免费 Android 版。与英文正文冲突时以英文为准。</p>
+<h1>半分知己 — 隐私政策</h1>
+<p class="meta">更新日期：2026 年 11 月 4 日 · 适用于免费 iOS 和 Android 版。与英文正文冲突时以英文为准。</p>
 
 <p>半分知己（Ground We Share，以下简称“本应用”）由 Ziqian Liu 提供，通过本地计算与手动交换消息，帮助两个人发现共同点。本政策涵盖本应用、本网站和支持通信。</p>
 
@@ -78,17 +90,26 @@
 <p>本应用没有用户账号或登录。开发者不运营接收选择、计算匹配或中转邀请与回传消息的服务器；匹配在你的设备上计算。网站托管和支持通信另见下文。</p>
 
 <h2>2. 我们收集什么</h2>
-<p>应用不会向我们发送你的选择、匹配结果或密码学密钥，没有集成分析 SDK、崩溃上报 SDK 或广告 SDK，也不需要账号。网站访问及主动发送的支持邮件的情况见下文。</p>
+<p>应用不会向我们发送你的选择、匹配结果或密码学密钥，没有集成分析 SDK、崩溃上报 SDK 或广告 SDK，也不需要账号。网站访问、主动发送的支持邮件及苹果测试服务的情况见下文。</p>
 
 <h2>3. 应用如何工作（简述）</h2>
-<p>应用支持电影、音乐艺人、国家和关系边界，使用隐私集合求交（PSI），无需以可读形式交换完整清单即可计算交集。在当前一对一流程中，邀请发起方收到回传后在本地计算结果；响应方不会在应用中收到结果。</p>
+<p><strong>剪贴板。</strong>只有你主动点击导入口令或读取剪贴板的操作时，GWS 才读取剪贴板文字，校验并导入邀请或回传；不会在后台监听，也不保存单独的剪贴板历史。读取或识别失败时，你可以手动粘贴、编辑消息，再确认导入。</p>
+<p>应用支持电影、音乐艺人、国家、关系边界和双人空闲时间，使用隐私集合求交（PSI），无需以可读形式交换完整清单即可计算交集。在当前一对一流程中，邀请发起方收到回传后在本地计算结果；响应方不会在应用中收到结果。</p>
+<p><strong>空闲时间。</strong>题目、日期范围、创建时区、时间规则、轮次标识和选择数量属于公开上下文。日期范围最长七个连续日期，每人整轮最多提供 24 个一小时时段。响应方可明确不提供候选时间，发起方会知道这一选择。只有发起方得到共同时间和对方数量；未选择不代表忙碌或拒绝。如果响应方的时间全部与发起方重合，全部时间都可能出现在结果中。数量限制不阻止多轮试探或不诚实客户端。公开摘要用于检查消息损坏，不是签名或身份认证。到期限制依据设备时钟，不是可信远程时间证明。GWS 不读取日历，也不上传日程。</p>
 <p>你通过自己选择的聊天服务交换邀请与回传文字。这些消息包含密码学数据，也可能透露场景、提示语和清单条目数量，并非所有内容都经过加密。聊天服务及收件人会处理你发送的文字，GWS 不通过开发者运营的服务器中转消息。</p>
+<p><strong>数据流向。</strong>你的手机生成邀请 → 你通过选择的聊天应用发送 → 对方手机计算回传 → 你们通过选择的渠道交换回传 → 发起方手机计算结果。外部聊天渠道会处理消息，这不是 GWS 管理的手机直接连接。</p>
+<p><strong>分享结果。</strong>你可以预览在本机生成的 PNG，再选择通过系统分享面板发送。图片是可读明文结果，不是加密回传；包含问题和共同选择，也可能包含交往边界结果，但不含轮次备注、完整选择清单、密钥或口令。目标应用和收件人由你选择。收件人可以保存或转发，GWS 无法撤回。打开分享面板不代表消息已送达。</p>
 
 <h2>4. 保存在你设备上的数据</h2>
-<p>你的选择内容与用于计算匹配结果的密钥材料，通过 Capacitor Preferences 保存在你自己的设备上（Android 使用 SharedPreferences）。这是应用私有存储，不是加密保险库。</p>
+<p>你的选择内容与用于计算匹配结果的密钥材料，通过 Capacitor Preferences 保存在你自己的设备上（iOS 使用 UserDefaults，Android 使用 SharedPreferences）。这是应用私有存储，不是加密保险库。</p>
 <p><strong>进行中的轮次。</strong>发起方设备保存所选条目及处理回传所需的密码学材料；响应方会话保存回传步骤所需的协议消息。待完成会话不会自动过期。开始替代轮次时，可能在确认后覆盖当前会话。</p>
-<p><strong>已完成的轮次。</strong>发起方算出结果后，应用会从当前会话记录移除该轮私钥与完整选择清单。本地历史记录包含场景、提示语、交集条目、发起方选择数量及时间。非边界场景合计最多保留 10 条历史；边界历史保留至手动删除。</p>
-<p><strong>你的控制方式。</strong>你可以在应用中删除历史，但删除历史不会同时清除当前会话。结果页的「重新开始」在适用时清除当前会话。依据操作系统、设备设置及厂商，本地数据（包括待完成轮次的密码学材料和历史）可能进入设备备份。Android 备份已启用，云备份或设备间迁移可能包含应用数据，但不保证可用。在应用中移除记录不会删除旧备份或已分享的消息。我们无法取回或远程删除你的本地选择与结果。</p>
+<p>所有主题共用一个当前轮次。空闲时间的当前回复还保存响应方自己封存的 UTC 时段，供重启后只读查看，不保存响应方私钥；替换或放弃当前轮次时清除这些时段和原回传。响应方不知道发起方何时完成，因此不会随发起方完成自动清除本机材料。删除回复摘要仍保留当前回复，也不会重建已删除摘要。未提交草稿仅在当前应用进程内保留。</p>
+<p><strong>结果、回复摘要和备注。</strong>发起方算出结果后，应用会从当前会话记录移除该轮私钥与完整选择清单。本地结果历史包含主题、问题、共同项、可用的发起方选择数量和时间，以及可选的轮次备注。响应方单独保留标为“已回复”的本地摘要，不包含结果或完整选择清单。记录保留到你主动删除，不再自动限制为十条。轮次备注仅保存在本机，不进入邀请、回传或结果图片。</p>
+<p>空闲时间结果历史仅保留共同 UTC 时段、固定日期和时区上下文、双方数量及关联摘要；回复历史保留公开上下文和自己的提交数量，不含完整选择或口令。时间结果图片只含公开题目、日期、显示时区和共同时段。过去的结果仍保留。应用内删除用于管理数据生命周期，不承诺内存、系统备份或聊天副本的安全擦除。</p>
+<p><strong>界面偏好。</strong>语言偏好保存在本机的应用或浏览器存储中。切换界面语言不会翻译自定义题目或已保存记录的原文。</p>
+<p><strong>放弃邀请。</strong>你可以放弃等待中的邀请。这会清除当前会话及处理回传所需的密码学材料，之后即使收到回传口令，也无法计算这一轮结果。此操作不会撤回已发送的消息，也不会删除旧备份。删除历史记录是另一项操作，等待中的会话仍会保留。</p>
+<p><strong>临时图片。</strong>分享 PNG 时会在应用缓存中生成文件，不自动写入相册。分享面板关闭后，文件可能继续保留，供接收应用读取。GWS 在后续启动时尝试清理超过 24 小时的本应用导出；系统可能更早回收缓存。你另行保存或分享出去的文件不会被此清理删除。</p>
+<p><strong>你的控制方式。</strong>你可以编辑备注、删除单条或全部历史。删除历史会保留待完成的邀请/回复会话；删除已完成记录时，适用的上次结果显示也会一并移除。结果页的「重新开始」在适用时清除当前会话。本地数据，包括待完成密钥、结果、回复摘要和备注，可能依操作系统及设置进入系统备份（包括 iCloud）。Android 备份已启用，但不保证云备份或设备间迁移可用。删除记录不会清除旧备份或已经分享的消息、图片。我们无法取回或远程删除你的本地数据。</p>
 
 <h2>5. 网络活动</h2>
 <p>搜索内置词表、选择条目、生成邀请和计算结果均在本地进行，不需要联网或开发者运营的服务。GWS 不会向我们发送你的选择、匹配结果或密码学密钥。电影、音乐等词表数据已打包在应用内部。</p>
@@ -97,19 +118,20 @@
 <h2>6. 第三方</h2>
 <p>我们不出售应用数据，也不将其用于广告。聊天、备份和外部网站适用各自的政策。Wikidata 适用 <a href="https://foundation.wikimedia.org/wiki/Policy:Privacy_policy">Wikimedia 隐私政策</a>。</p>
 <p>公开隐私政策网站由 GitHub Pages 托管。我们没有添加统计脚本、广告或追踪 Cookie。GitHub 可能为提供及保护托管服务处理 IP 地址等技术请求信息，详见 <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement">GitHub 隐私声明</a>。本地随应用打包的政策副本可离线阅读。</p>
+<p>如果你使用 TestFlight 测试版，苹果会收集测试信息，并可能向开发者提供崩溃报告、使用信息及反馈，详见 <a href="https://www.apple.com/legal/privacy/data/en/test-flight/">TestFlight 与隐私</a>。这与应用自身的本地计算是不同的处理活动。</p>
 <p>如果你向我们发邮件，我们会收到你的邮箱地址及你提供的内容，用于回复和处理请求，并仅在支持或法律义务所需期间保留。邮件服务商负责邮件传输及存储。请避免发送私人选择、邀请或回传文字。你可联系我们请求访问、更正或删除支持通信。依据所在地法律，你可能还享有其他隐私权利，包括向当地数据保护机构投诉的权利。</p>
 
 <h2>7. 儿童隐私</h2>
-<p>Android 版仅面向 18 岁及以上成年人，不含广告或应用内购买。我们不会主动向儿童索取个人信息。如果儿童已通过支持渠道发送个人信息，请联系我们处理。</p>
+<p>应用不面向儿童设计，不含广告或应用内购买。我们不会主动向儿童索取个人信息。如果儿童已通过支持渠道发送个人信息，请联系我们处理。</p>
 
 <h2>8. 政策变更</h2>
-<p>本政策变更时，我们会更新生效日期并说明重大变化，依法提供额外通知或取得同意。</p>
+<p>本政策变更时，我们会更新政策日期并说明重大变化，依法提供额外通知或取得同意。</p>
 
 <h2>9. 联系方式</h2>
 <p>开发者：Ziqian Liu。隐私及支持邮箱：<a href="mailto:admin@sceneswemet.com">admin@sceneswemet.com</a>。支持请求也请发送至该邮箱。</p>
 </section>
 
-<footer>Ground We Share (半分知己) · <a href="mailto:admin@sceneswemet.com">Support / 支持</a></footer>
+<footer>Ground We Share (半分知己) · <a href="/support.html">Support / 支持</a></footer>
 
 </body>
 </html>
